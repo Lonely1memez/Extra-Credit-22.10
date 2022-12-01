@@ -4,7 +4,7 @@
 using namespace std;
 
 // Calculate AGI and repair any negative values
-int CalcAGI(int wages, int interest, int unemployement)
+int CalcAGI(int wages, int interest, int unemployment)
 {
     if(wages < 0)
     {
@@ -14,11 +14,11 @@ int CalcAGI(int wages, int interest, int unemployement)
     {
         interest = -1*interest;
     }
-    if(unemployement < 0)
+    if(unemployment < 0)
     {
-        unemployement = -1*unemployement;
+        unemployment = -1*unemployment;
     }   
-    return wages+interest+unemployement;
+    return wages+interest+unemployment;
 }
 
 int GetDeduction(int status)
@@ -97,18 +97,18 @@ int CalcTaxDue(int tax, int withheld)
 int main()
 {
     // Variable declaration
-    int wages, interest, unemployement, status, withheld;
+    int wages, interest, unemployment, status, withheld;
     int tax, agi, due, deduction, taxable;
   
     // Step #1: Input information
   cin >> wages;
   cin >> interest;
-  cin >> unemployement;
+  cin >> unemployment;
   cin >> status;
   cin >> withheld;
   
     // Step #2: Calculate AGI
-    agi = CalcAGI(wages, interest, unemployement);
+    agi = CalcAGI(wages, interest, unemployment);
     cout << "AGI: $" << agi << endl;
   
     deduction = GetDeduction(status);
